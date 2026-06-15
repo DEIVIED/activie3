@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(MonAppli());
+import 'firebase_options.dart';
+import 'views/page_accueil.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const MonAppli());
 }
 
 class MonAppli extends StatelessWidget {
@@ -9,48 +15,10 @@ class MonAppli extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Magazine',
       debugShowCheckedModeBanner: false,
       home: PageAccueil(),
-    );
-  }
-}
-
-class PageAccueil extends StatelessWidget {
-  const PageAccueil({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Magazine Infos'),
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            // action menu
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // action recherche
-            },
-          ),
-        ],
-      ),
-      body: Center(child: Image.asset('images/magazineInfo.png')),
-
-      floatingActionButton: FloatingActionButton(
-        // Arrondir le boutton
-        shape: CircleBorder(),
-        backgroundColor: Colors.pink, // couleur conforme à la figure
-        onPressed: () {
-          print('Tu as cliqué dessus');
-        },
-        child: Text('Click', style: TextStyle(color: Colors.white)),
-      ),
     );
   }
 }
