@@ -16,7 +16,7 @@ class MonAppli extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Magazine',
+      title: 'Magazine Infos',
       debugShowCheckedModeBanner: false,
       home: PageAccueil(),
     );

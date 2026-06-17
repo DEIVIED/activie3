@@ -4,13 +4,13 @@ class MenuNavigation extends StatelessWidget {
   const MenuNavigation({
     super.key,
     required this.onAccueilSelected,
-    required this.onAjoutUtilisateurSelected,
-    required this.onListeUtilisateursSelected,
+    required this.onAjoutRedacteurSelected,
+    required this.onListeRedacteursSelected,
   });
 
   final VoidCallback onAccueilSelected;
-  final VoidCallback onAjoutUtilisateurSelected;
-  final VoidCallback onListeUtilisateursSelected;
+  final VoidCallback onAjoutRedacteurSelected;
+  final VoidCallback onListeRedacteursSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +38,18 @@ class MenuNavigation extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person_add),
-            title: const Text('Ajouter un utilisateur'),
+            title: const Text('Ajouter un redacteur'),
             onTap: () {
               Navigator.pop(context);
-              onAjoutUtilisateurSelected();
+              onAjoutRedacteurSelected();
             },
           ),
           ListTile(
             leading: const Icon(Icons.people),
-            title: const Text('Liste des utilisateurs'),
+            title: const Text('Liste des redacteurs'),
             onTap: () {
               Navigator.pop(context);
-              onListeUtilisateursSelected();
+              onListeRedacteursSelected();
             },
           ),
         ],

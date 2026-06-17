@@ -13,7 +13,8 @@ void main() {
   testWidgets('Affiche la page magazine', (WidgetTester tester) async {
     await tester.pumpWidget(const MonAppli());
 
-    expect(find.text('Magazine Infos'), findsOneWidget);
-    expect(find.text('Click'), findsOneWidget);
+    expect(find.text('Magazine Infos'), findsWidgets);
+    expect(find.text('Ajouter'), findsOneWidget);
+    expect(find.text('Firestore'), findsOneWidget);
   });
 }
